@@ -1,29 +1,13 @@
 ---
 layout: post
-title: An Analysis of Transformer Backward Propagation
+title: newest post here
 date: 2023-08-02 15:00:00-0400
-description: derive gradient functions of each layer in classical Transformer.
-tags: deep-learning
+description: an example of a blog post with bibliography
+tags: formatting bib
+categories: sample-posts
 giscus_comments: true
 related_posts: false
+related_publications: einstein1950meaning, einstein1905movement
 ---
 
-this is what i want to see.
-
-## Table of contents
-- [Table of contents](#table-of-contents)
-- [What's Transformer?](#whats-transformer)
-  - [Origination](#origination)
-  - [Application](#application)
-- [Backpropagation](#backpropagation)
-  - [How do we use it?](#how-do-we-use-it)
-
-## What's Transformer?
-
-### Origination
-
-### Application
-
-## Backpropagation
-
-### How do we use it?
+This post shows how to add bibliography to simple blog posts. If you would like something more academic, check the [distill style post]({% post_url 2018-12-22-distill %}).
