@@ -18,5 +18,5 @@ Among all the deep learning models, Transformer can be the most widely talked ov
 
 ## What's Transformer?
 
-Tranformer is an advanced neural network model first proposed by Google in the paper [*Attention is All You Need*](https://arxiv.org/abs/1706.03762v4). Transformer consists of decoders and encoders (also known as `seq2seq` structure) like most of the NLP models, but instead of using RNN (Recurrent Neural Networks) and CNN (Convolution Neural Networks), . 
+Tranformer is an advanced neural network model first proposed by Google in the paper [Attention is All You Need](https://arxiv.org/abs/1706.03762v4). Transformer consists of decoders and encoders (also known as `seq2seq` structure) like most of the NLP models, but instead of using RNN (Recurrent Neural Networks) and CNN (Convolution Neural Networks), . 
 
