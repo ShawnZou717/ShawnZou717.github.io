@@ -15,10 +15,7 @@ related_posts: false
 
 Among all the deep learning models, Transformer can be the most widely talked over one thanks to the tremendous performance that ChatGPT, a Transformer-based model, has shown in being a personal assistant and chatbot. Never heard of it? Let's take a look at ChatGPT's own words.
 
-<figure>
-  <figcaption>Ask ChatGPT to introduce the Transformer model</figcaption>
-  <img src="../assets/img/transformer-analysis/try-chatGPT.png" width="540">
-</figure>
+{% include figure.html path="assets/img/transformer-analysis/try-chatGPT.png" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 Transformer's application extends way out of NLP domain. As a powerful mathematical tool, it has helped us in DNA recognition, medical research and many aspects in other research area. I believe it is safe to say that one day we may all need to apply this model in our project. Thus, a solid understanding of Transformer architecture is neccesary. To this end, this blog focuses on a comprehensive introduction of Transformer.
 
@@ -29,7 +26,6 @@ In 2017, Google posted a paper named [Attention is All You Need](https://arxiv.o
 
 {% include figure.html path="assets/img/transformer-analysis/transformer-entire.png" class="img-fluid rounded z-depth-1" %}
 Simplified Transformer Structure
-{% include figure.html path="assets/img/transformer-analysis/transformer-en-decoders.png" class="img-fluid rounded z-depth-2" %}
+{% include figure.html path="assets/img/transformer-analysis/transformer-en-decoders.png" class="img-fluid rounded z-depth-1" %}
 Transformer encoders and decoders
-
 As illustrated above, Transformer has 6 encoders and 6 decoders. Encoder 
