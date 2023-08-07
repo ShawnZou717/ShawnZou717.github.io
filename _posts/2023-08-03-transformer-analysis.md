@@ -32,20 +32,20 @@ In 2017, Google posted a paper named [Attention is All You Need](https://arxiv.o
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/transformer-analysis/transformer-entire.png" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/transformer-analysis/transformer-entire.png" class="img-fluid rounded z-depth-1" width="540" zoomable=true %}
     </div>
 </div>
 <div class="caption">
-    Simplified Transformer Structure
+    Simplified Transformer Structure (Click on image to zoom in)
 </div>
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/transformer-analysis/transformer-en-decoders.png" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/transformer-analysis/transformer-en-decoders.png" class="img-fluid rounded z-depth-1" width="500" zoomable=true %}
     </div>
 </div>
 <div class="caption">
-    Transformer encoders and decoders
+    Transformer encoders and decoders (Click on image to zoom in)
 </div>
 
-As illustrated above, Transformer has 6 encoders and 6 decoders. Encoder 
+As illustrated above, Transformer has 6 encoders and 6 decoders. 
