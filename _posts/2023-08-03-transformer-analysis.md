@@ -32,7 +32,7 @@ In 2017, Google posted a paper named [Attention is All You Need](https://arxiv.o
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/transformer-analysis/transformer-entire.png" class="img-fluid d-block mx-auto rounded z-depth-1" width="540" zoomable=true %}
+        {% include figure.html path="assets/img/transformer-analysis/transformer-entire.png" class="img-fluid d-block mx-auto rounded z-depth-1" max-width="80%" zoomable=true %}
     </div>
 </div>
 <div class="caption">
@@ -41,11 +41,11 @@ In 2017, Google posted a paper named [Attention is All You Need](https://arxiv.o
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/transformer-analysis/transformer-en-decoders.png" class="img-fluid rounded z-depth-1" width="500" zoomable=true %}
+        {% include figure.html path="assets/img/transformer-analysis/transformer-en-decoders.png" class="img-fluid d-block mx-auto rounded z-depth-1" max-width="80%" zoomable=true %}
     </div>
 </div>
 <div class="caption">
     Transformer encoders and decoders (Click on image to zoom in)
 </div>
 
-As illustrated above, Transformer has 6 encoders and 6 decoders. The output of the 6th encoder is used 
+As shown in the above figures, the Transformer backbone is composed of 6 encoders and 6 decoders. The output of the end encoder is used for the Key and Value calculations of the 2nd `multi-head attention` in all decoders. The encoder and decoder have a very similar structure, only that the decoder has one extra layer of `ADD&NORM` and one extra layer of `multi-head attention`. In addition, it should be noted that a mask operation has been added to the 1st `multi-head attention` layer of each decoder, which aims to use the `seq2seq` structure while ensuring the parallelism of the network.
