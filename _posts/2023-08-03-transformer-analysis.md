@@ -27,9 +27,9 @@ Transformer's application extends way out of NLP domain. As a powerful mathemati
 
 In 2017, Google posted a paper named [Attention is All You Need](https://arxiv.org/abs/1706.03762v4) in arXiv bringing Transformer into history. Though Transformer follows the `seq2seq` structure (also known as `decoders and encoders`), its encoders and decoders consist of sole `self-attention` modules instead of `RNN` and `CNN` like most other NLP models. This is exactly the origin of the article title, a neural network composed entirely of `self-attention` mechanisms. Now let's take the classic Transformer as an example reviewing the unique model introduced by Transformer.
 
-<figure>
-  <figcaption>Simplified Transformer Structure</figcaption>
-  <img src="../assets/img/transformer-analysis/transformer-arch.png" width="540">
-</figure>
+{% include figure.html path="assets/img/transformer-analysis/transformer-entire.png" class="img-fluid rounded z-depth-1" %}
+Simplified Transformer Structure
+{% include figure.html path="assets/img/transformer-analysis/transformer-en-decoders.png" class="img-fluid rounded z-depth-2" %}
+Transformer encoders and decoders
 
 As illustrated above, Transformer has 6 encoders and 6 decoders. Encoder 
