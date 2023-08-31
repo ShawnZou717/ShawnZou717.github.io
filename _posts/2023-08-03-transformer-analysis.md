@@ -46,15 +46,6 @@ In 2017, Google posted a paper named [Attention is All You Need](https://arxiv.o
     Transformer encoders and decoders
 </div>
 
-<div class="row mt-3">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/transformer-analysis/transformer-en-decoders.png" class="img-fluid d-block mx-auto rounded z-depth-1" max-width=60% max-height=60% zoomable=true %}
-    </div>
-</div>
-<div class="caption">
-    Transformer encoders and decoders
-</div>
-
 Transformer model stacks 6 encoders and 6 decoders, ahead by a source embedding and a target embedding networks, end with a softmax classifier. Embedding units can be self-constructed algorithms or pre-trained networks such as `Word2Vec`. The encoder and decoder have a very similar structure, only that the decoder has one extra layer of `ADD & NORM` and one extra layer of `multi-head attention`. In addition, it should be noted that a `mask operation` has been added to the 1st multi-head attention layer of each decoder, which aims to use the seq2seq structure while ensuring the parallelism of the network. The softmax classifier consists of a `linear transformation` and a `softmax` layer. To know more technique details of these operators, let's start orgnize the forward propagation of Transformer.
 
 ## Forward Propagation
@@ -80,9 +71,7 @@ Before we go further, I'd like to give you some preliminary knowledge about word
 
     To tackle this problem, `word embedding` is proposed. This method aims to represent words with a intensive vector in a high dimension space, meanwhile the distance among vectors represent the textual and semantic similarity of their corresponding words. For example, all the words descripe emotions such as **happy** and **sad** should concentrate in one area after word embedding.
 
-    There are some widely used word embedding methods including `Word2Vec`, `FastText` and `GloVe`. Wanna know more? Try asking ChatGPT about it. 
-
-To specify the parameter shape of classic Transformer, we assume this Transformer is used for translating English to Germany with both 32,000 words lexicon. 
+There are some widely used word embedding methods including `Word2Vec`, `FastText` and `GloVe`. Wanna know more? Try asking ChatGPT about it. Classic Transformer uses a customized embedding unit containing a linear Transformation and a softmax layer. To specify the parameter shape of classic Transformer, we assume this Transformer is used for translating English to Germany with both 32,000 words lexicon. 
 
 The input of word embedding network is `ont-hot` word vector. Say we have 32000 words in a English lexicon ranking in dictionary order. `One hot` method transforms each word to a vector of length 32000 with 31999 zero values and 1 one value locating at the word's index in lexicon. For example, we all know (At least every Chinese student knows) the **abandon** ranks no.1 in all High School English dictionaries of China. That make **abandon**'s `one-hot` vector be $[1, 0, 0, ...0]$, vector length = 32000. Same as other words.
 
