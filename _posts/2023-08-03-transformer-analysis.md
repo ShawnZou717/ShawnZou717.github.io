@@ -76,7 +76,7 @@ There are some widely used word embedding methods including `Word2Vec`, `FastTex
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/transformer-analysis/word_embedding.png" class="img-fluid d-block mx-auto rounded z-depth-1" max-width="60%" max-height="60%" zoomable=true %}
+        {% include figure.html path="assets/img/transformer-analysis/word_embedding_structure.png" class="img-fluid d-block mx-auto rounded z-depth-1" max-width="60%" max-height="60%" zoomable=true %}
     </div>
 </div>
 <div class="caption">
@@ -97,8 +97,8 @@ cos(\frac{s}{10000^{\frac{2i+1}{D}}}), & s = 2i+1
 \end{cases}
 $$
 
-$D=512$, denotes the maximum value of $d$. Each position generated an unique vector to represent the relative position relation among words. To attach these informations, position embedded vector and word embedded vector should be added together directly. Don't doubt your eyes, just easily add them.
+$D=512$, denotes the maximum value of $d$. Each position generated an unique vector to represent the relative position relation among words. To attach these informations, position embedded vector and word embedded vector should be added together directly. Don't doubt your eyes, just easily add them like below.
 
 $$
-O_{word\_ embedding}(n,s,d)+P(s, d)
+O_{position_embedding}(n,s,d)=O_{word\_ embedding}(n,s,d)+P(s, d)
 $$
