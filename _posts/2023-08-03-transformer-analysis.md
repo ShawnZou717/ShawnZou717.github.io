@@ -87,3 +87,18 @@ It's worth noticing that before we can put words into Transformer, sentences are
 
 ### Position Embedding
 
+Position embedding works just like word embedding, only it aims to encode the position information of each word into the embedded vector. The most straightforward way is using word's natural rank index within the sentence. However, embedded word vector usually possess an absolute amplitude smaller than 1, large rank index can totally erase or hide the effective sematic and textual message of a word. That is when we induced triangle-function encoding function. For a given word embedded vector, in this case the output of word embedding unit, the position embedding vector can be generated according to the following equation.
+
+$$
+P(s, d)=
+\begin{cases}
+sin(\frac{s}{10000^{\frac{2i}{D}}}), & s = 2i\\
+cos(\frac{s}{10000^{\frac{2i+1}{D}}}), & s = 2i+1
+\end{cases}
+$$
+
+$D=512$, denotes the maximum value of $d$. Each position generated an unique vector to represent the relative position relation among words. To attach these informations, position embedded vector and word embedded vector should be added together directly. Don't doubt your eyes, just easily add them.
+
+$$
+O_{word\_ embedding}(n,s,d)+P(s, d)
+$$
