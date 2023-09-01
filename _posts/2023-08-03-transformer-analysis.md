@@ -13,6 +13,7 @@ related_posts: false
 - [Transformer Architecture](#transformer-architecture)
 - [Forward Propagation](#forward-propagation)
   - [Word Embedding](#word-embedding)
+  - [Position Embedding](#position-embedding)
 
 Recently, a great personal assistant and chit-chat robot ChatGPT gained a lot of attention. Unlike other wooden voice assistants on our phones such as Siri, ChatGPT can process textual and semantic information in natural language, meaning it can talk to people continuously on a given topic and understand undelying meanings. Find it hard to believe? Let's have a try.
 
@@ -57,7 +58,7 @@ Before we go further, I'd like to give you some preliminary knowledge about word
 
 * **One-hot encoding**
 
-    One-hot encoding is a technique that transfers words into binary vector where each value represent one word in the lexicon. Fot a given word, the value at its corresponding position is turned on (set to be 1) while the others remain turned off (set to be 0). For example, we have RGB Tricolor, each color can be expressed by the following vectors:
+    One-hot encoding is a technique that transfers words into binary vector where each value represent one word in the lexicon. For a given word, the value at its corresponding position is turned on (set to be 1) while the others remain turned off (set to be 0). For example, we have RGB Tricolor, each color can be expressed by the following vectors:
 
     | Color | Vector |
     | :------------: | :------------: |
@@ -71,28 +72,18 @@ Before we go further, I'd like to give you some preliminary knowledge about word
 
     To tackle this problem, `word embedding` is proposed. This method aims to represent words with a intensive vector in a high dimension space, meanwhile the distance among vectors represent the textual and semantic similarity of their corresponding words. For example, all the words descripe emotions such as **happy** and **sad** should concentrate in one area after word embedding.
 
-There are some widely used word embedding methods including `Word2Vec`, `FastText` and `GloVe`. Wanna know more? Try asking ChatGPT about it. Classic Transformer uses a customized embedding unit containing a linear Transformation and a softmax layer. To specify the parameter shape of classic Transformer, we assume this Transformer is used for translating English to Germany with both 32,000 words lexicon. 
-
-The input of word embedding network is `ont-hot` word vector. Say we have 32000 words in a English lexicon ranking in dictionary order. `One hot` method transforms each word to a vector of length 32000 with 31999 zero values and 1 one value locating at the word's index in lexicon. For example, we all know (At least every Chinese student knows) the **abandon** ranks no.1 in all High School English dictionaries of China. That make **abandon**'s `one-hot` vector be $[1, 0, 0, ...0]$, vector length = 32000. Same as other words.
+There are some widely used word embedding methods including `Word2Vec`, `FastText` and `GloVe`. Wanna know more? Try asking ChatGPT about it. Classic Transformer uses a customized embedding unit containing a linear Transformation and a softmax layer. To specify the parameter shape, we assume this Transformer is used for translating English to Germany with both 32,000 words lexicon. Then the data flow and shape variation of word embedding can be shown in the following figure.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/transformer-analysis/one-hot-encoding.jpg" class="img-fluid d-block mx-auto rounded z-depth-1" max-width="60%" max-height="60%" zoomable=true %}
+        {% include figure.html path="assets/img/transformer-analysis/word_embedding.png" class="img-fluid d-block mx-auto rounded z-depth-1" max-width="60%" max-height="60%" zoomable=true %}
     </div>
 </div>
 <div class="caption">
-    One hot encoding
+    Word embedding structure
 </div>
 
-`Word embedding` maps words into intensive vectors. An intensive vector is such a vector of length far smaller than the dictionary size and indicating the relationship of words by their space distrution. The needs of `word embedding` encoding come from the intensive relevance of human word. Though `one hot` encoding gives accurate representation of each word, these vector are orthogonal to each other, that makes 
+It's worth noticing that before we can put words into Transformer, sentences are first one-hot encoded, then compressed from 32000 to 512 in size by the following word embedding unit. Normally, for convenience and consistency, source and target embedding take the same size of embedded vector. Sure you can change the parameter shape to whatever you like. But here we follow the above convention.
 
-For example, in [Attention is All You Need](https://arxiv.org/abs/1706.03762v4), the intensive word vector size is set to be 512, while the `one-hot` vector size is 32000. Compressing the vector size can not only avoid the delimma of 
+### Position Embedding
 
-<div class="row mt-3">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/transformer-analysis/word-embedding-space.jpeg" class="img-fluid d-block mx-auto rounded z-depth-1" max-width="60%" max-height="60%" zoomable=true %}
-    </div>
-</div>
-<div class="caption">
-    Word embedding space (Chinese characters as an example), come from csdn blog (https://blog.csdn.net/Alex_81D/article/details/114287498)
-</div>
