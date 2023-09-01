@@ -14,6 +14,7 @@ related_posts: false
 - [Forward Propagation](#forward-propagation)
   - [Word Embedding](#word-embedding)
   - [Position Embedding](#position-embedding)
+  - [Encoder and Decoder](#encoder-and-decoder)
 
 Recently, a great personal assistant and chit-chat robot ChatGPT gained a lot of attention. Unlike other wooden voice assistants on our phones such as Siri, ChatGPT can process textual and semantic information in natural language, meaning it can talk to people continuously on a given topic and understand undelying meanings. Find it hard to believe? Let's have a try.
 
@@ -76,7 +77,7 @@ There are some widely used word embedding methods including `Word2Vec`, `FastTex
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/transformer-analysis/word_embedding_structure.png" class="img-fluid d-block mx-auto rounded z-depth-1" max-width="60%" max-height="60%" zoomable=true %}
+        {% include figure.html path="assets/img/transformer-analysis/word_embedding.jpg" class="img-fluid d-block mx-auto rounded z-depth-1" max-width="60%" max-height="60%" zoomable=true %}
     </div>
 </div>
 <div class="caption">
@@ -102,3 +103,7 @@ $D=512$, denotes the maximum value of $d$. Each position generated an unique vec
 $$
 O_{position_embedding}(n,s,d)=O_{word\_ embedding}(n,s,d)+P(s, d)
 $$
+
+### Encoder and Decoder
+
+Encoder and decoder can be the most difficult part of Transformer though it is composed by many simple submodules as many innovative operations have been adopted. Such as `mask` operation in the decoder.
