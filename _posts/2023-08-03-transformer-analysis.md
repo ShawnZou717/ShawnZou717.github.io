@@ -8,13 +8,19 @@ categories: deep-learning
 related_posts: false
 ---
 
-## Table of Contents
-- [Table of Contents](#table-of-contents)
-- [Transformer Architecture](#transformer-architecture)
-- [Forward Propagation](#forward-propagation)
-  - [Word Embedding](#word-embedding)
-  - [Position Embedding](#position-embedding)
-  - [Encoder and Decoder](#encoder-and-decoder)
+## 0. Table of Contents
+---
+- [0. Table of Contents](#0-table-of-contents)
+- [1. Transformer Architecture](#1-transformer-architecture)
+- [2. Forward Propagation](#2-forward-propagation)
+  - [2.1 Word Embedding](#21-word-embedding)
+  - [2.2 Position Embedding](#22-position-embedding)
+  - [2.3 Encoder and Decoder](#23-encoder-and-decoder)
+    - [2.3.1 ADD \& NORM](#231-add--norm)
+    - [2.3.2 Feed Forward Network](#232-feed-forward-network)
+    - [2.3.3 Multi-head Attention](#233-multi-head-attention)
+  - [2.4 Softmax Classifier](#24-softmax-classifier)
+- [3 Backward Propagation](#3-backward-propagation)
 
 Recently, a great personal assistant and chit-chat robot ChatGPT gained a lot of attention. Unlike other wooden voice assistants on our phones such as Siri, ChatGPT can process textual and semantic information in natural language, meaning it can talk to people continuously on a given topic and understand undelying meanings. Find it hard to believe? Let's have a try.
 
@@ -26,7 +32,7 @@ Recently, a great personal assistant and chit-chat robot ChatGPT gained a lot of
 
 You can see that not only can ChatGPT keep the conversation but also give natural responses to my PhD joke. Why is it so fluent and elegant? What sets ChatGPT apart from Siri and Bixby? The reason is the powerful informatic extraction ability of ChatGPT's submodule, Transformer. Transformer's application extends way out of NLP domain. As a powerful mathematical tool, it has helped us in DNA recognition, medical research and many aspects in other research area. I believe it is safe to say that one day we may all need to apply this model in our project. Thus, a solid understanding of Transformer architecture is neccesary. To this end, this blog focuses on a comprehensive introduction of Transformer.
 
-## Transformer Architecture
+## 1. Transformer Architecture
 ---
 In 2017, Google posted a paper named [Attention is All You Need](https://arxiv.org/abs/1706.03762v4) in arXiv bringing Transformer into history. Though Transformer follows the `seq2seq` structure (also known as `decoders and encoders`), its encoders and decoders consist of sole `self-attention` modules instead of `RNN` and `CNN` like most other NLP models. This is exactly the origin of the article title, a neural network composed entirely of self-attention mechanisms. Now let's take the classic Transformer as an example reviewing this unique model. Below shows a simplified Transformer structure and detail composition of encoders and decoders.
 
@@ -50,10 +56,10 @@ In 2017, Google posted a paper named [Attention is All You Need](https://arxiv.o
 
 Transformer model stacks 6 encoders and 6 decoders, ahead by a source embedding and a target embedding networks, end with a softmax classifier. Embedding units can be self-constructed algorithms or pre-trained networks such as `Word2Vec`. The encoder and decoder have a very similar structure, only that the decoder has one extra layer of `ADD & NORM` and one extra layer of `multi-head attention`. In addition, it should be noted that a `mask operation` has been added to the 1st multi-head attention layer of each decoder, which aims to use the seq2seq structure while ensuring the parallelism of the network. The softmax classifier consists of a `linear transformation` and a `softmax` layer. To know more technique details of these operators, let's start orgnize the forward propagation of Transformer.
 
-## Forward Propagation
+## 2. Forward Propagation
 ---
 
-### Word Embedding
+### 2.1 Word Embedding
 
 Before we go further, I'd like to give you some preliminary knowledge about word encoding, that is the method for digitalizing human words as computers are not capable of recognizing human language sympols. The most widely used ones are `one-hot encoding` and `word embedding` methods.
 
@@ -86,7 +92,7 @@ There are some widely used word embedding methods including `Word2Vec`, `FastTex
 
 It's worth noticing that before we can put words into Transformer, sentences are first one-hot encoded, then compressed from 32000 to 512 in size by the following word embedding unit. Normally, for convenience and consistency, source and target embedding take the same size of embedded vector. Sure you can change the parameter shape to whatever you like. But here we follow the above convention.
 
-### Position Embedding
+### 2.2 Position Embedding
 
 Position embedding works just like word embedding, only it aims to encode the position information of each word into the embedded vector. The most straightforward way is using word's natural rank index within the sentence. However, embedded word vector usually possess an absolute amplitude smaller than 1, large rank index can totally erase or hide the effective sematic and textual message of a word. That is when we induced triangle-function encoding function. For a given word embedded vector, in this case the output of word embedding unit, the position embedding vector can be generated according to the following equation.
 
@@ -104,6 +110,32 @@ $$
 O_{position_embedding}(n,s,d)=O_{word\_ embedding}(n,s,d)+P(s, d)
 $$
 
-### Encoder and Decoder
+### 2.3 Encoder and Decoder
 
-Encoder and decoder can be the most difficult part of Transformer though it is composed by many simple submodules as many innovative operations have been adopted. Such as `mask` operation in the decoder.
+Encoder and decoder can be the most difficult part of Transformer though it is composed of many simple submodules as many innovative operations have been adopted. Such as `mask` operation in the decoder. Fortunately, encoder and decoder share similar architectures, thus we divide them into 3 basic units, there are `ADD & NORM`, `FFN`, and `Multi-head Attention (masked or not one)`.
+
+#### 2.3.1 ADD & NORM
+
+`ADD & NORM` is composed by a `ADD` and a `Layer Normalization` operations. ADD operation is implemented by element-wise summing tensors, and is commonly used in residual networks, an commonly used unit for raising NN performance by increasing the depth of NN while making gradient backpropagation reachable to the shallow layers. Whether from the forward or backward propagation side, ADD has the simplest form among all operators. Therefore, we don't talk too much about it here.
+
+Whereas when it comes to "Normalization", situations become far more complicated. You might know `batch normalization` well. In image-processing neural networks, convolution always follows a BN operation to zerolize and rescale data distribution. BN is helpful in speeding up training process and stabilizing amplitude range of data. Unfortunately, BN is not suitable for NLP tasks due to the huge difference of data features between image and human language. Till now there are still many discussions about the pros and cons of BN and LN. If you are confused about the selection between them, the best way is to review relevant papers. Here we only introduce how the LN is done in Transformer.
+
+Unlike BN, LN redistribute data within the embedded vector range, i.e. each word's embedded vector subtracts its expectation and is then divided by its variance. Combining our assumption on the parameter shapes above, LN equation looks like this:
+
+$$
+O_{LN}(n,s,d)=
+\frac{I_{LN}(n,s,d)-\mu\left(I_{LN}(n,s,:)\right)}
+{\sqrt{\sigma^{2}(I_{LN}(n,s,:))+\epsilon}}
+\times\gamma(d)+\beta(d)
+$$
+
+$\mu\left(I_{LN}(n,s,:)\right)$ denotes the mean value of $I_{LN}$ along $d$ dimension. $\sigma^{2}(I_{LN}(n,s,:))$ denotes the variance of $I_{LN}$ along $d$ dimension. $\epsilon$ is of very small magnitude to avoid deviding zero. $\gamma, \beta$ are learnable parameters of length $D(=512)$.
+
+#### 2.3.2 Feed Forward Network
+
+#### 2.3.3 Multi-head Attention
+
+### 2.4 Softmax Classifier
+
+## 3 Backward Propagation
+---
