@@ -24,9 +24,9 @@
   },
   "work": [
     {
-      "name": "Institute for Advanced Study, Princeton University",
-      "position": "Professor of Theoretical Physics",
-      "url": "https://example.com",
+      "name": "Intelligent Supercomputing Research Center, Zhejiang Lab",
+      "position": "Research Engineer",
+      "url": "https://www.zhejianglab.com/home",
       "startDate": "1933-01-01",
       "endDate": "1955-01-01",
       "summary": "Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.",
@@ -38,24 +38,24 @@
   "volunteer": [],
   "education": [
     {
-      "institution": "University of Zurich, Zurich, Switzerland",
-      "url": "https://www.uzh.ch/",
-      "area": "Software Development",
+      "institution": "Hong Kong University of Science and Technology (Guangzhou), Guangzhou, China",
+      "url": "https://www.hkust-gz.edu.cn/",
+      "area": "Physical Oceanography",
       "studyType": "PhD",
-      "startDate": "1905-01-01",
-      "endDate": "1905-01-01",
+      "startDate": "2023-09-01",
+      "endDate": "2023-09-01",
       "score": "",
       "courses": [
-        "Theory of Relativity"
+        "Introduction to Oceanography"
       ]
     }
   ],
   "awards": [
     {
       "title": "Nobel Prize in Physics",
-      "date": "1921-11-01",
-      "awarder": "Royal Swedish Academy of Sciences",
-      "summary": "The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'"
+      "date": "2022-05-04",
+      "awarder": "May Fourth Youth Collective Medal",
+      "summary": "This medal is awarded to recognize the sustained contributions of the young team at the Intelligence Supercomputing Research Center in the field of quantum computing simulation research."
     }
   ],
   "certificates": [],
@@ -72,7 +72,7 @@
     },
     {
       "language": "French, Japanese, and Spanish",
-      "fluency": "Know absolutely nothing"
+      "fluency": "Absolutely don't understand"
     }
   ],
   "interests": [],
