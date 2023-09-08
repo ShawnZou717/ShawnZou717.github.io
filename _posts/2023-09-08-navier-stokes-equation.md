@@ -11,6 +11,7 @@ toc:
   sidebar: left
 ---
 
+*Sincere thanks to my kind classmate **Xinghao Jiang** for lending me the fluid mechanics textbook, which helped me review the fundamentals of fluid mechanics.*
 
 ## Introduction of Navier-Stokes Equations
 ---
