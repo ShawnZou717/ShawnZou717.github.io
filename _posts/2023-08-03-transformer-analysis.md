@@ -129,7 +129,7 @@ O_{LN}(n,s,d)=
 \times\gamma(d)+\beta(d)
 $$
 
-$\mu\left(I_{LN}(n,s,:)\right)$ denotes the mean value of $I_{LN}$ along $d$ dimension. $\sigma^{2}(I_{LN}(n,s,:))$ denotes the variance of $I_{LN}$ along $d$ dimension. $\epsilon$ is of very small magnitude to avoid deviding zero. $\gamma, \beta$ are learnable parameters of length $D(=512)$.
+$$\mu\left(I_{LN}(n,s,:)\right)$$ denotes the mean value of $$I_{LN}$$ along $$d$$ dimension. $$\sigma^{2}(I_{LN}(n,s,:))$$ denotes the variance of $$I_{LN}$$ along $$d$$ dimension. $$\epsilon$$ is of very small magnitude to avoid deviding zero. $$\gamma, \beta$$ are learnable parameters of length $$D(=512)$$.
 
 #### 2.3.2 Feed Forward Network
 
