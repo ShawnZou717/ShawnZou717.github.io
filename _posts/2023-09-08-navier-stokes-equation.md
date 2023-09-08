@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Navier Stokes Equations
+title: From Newton's Law to Navier-Stokes Equations
 date: 2023-09-08 20:28:00+0800
 description: a review of Navier-Stokes Equations
 tags: Fluid

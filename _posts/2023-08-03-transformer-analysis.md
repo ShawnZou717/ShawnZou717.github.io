@@ -5,22 +5,11 @@ date: 2023-08-03 11:57:00+0800
 description: a plain introduction of Transformer and professional derivation of its forward and backward propagation
 tags: Transformer
 categories: deep-learning
+giscus_comments: true
 related_posts: false
+toc:
+  sidebar: left
 ---
-
-## 0. Table of Contents
----
-- [0. Table of Contents](#0-table-of-contents)
-- [1. Transformer Architecture](#1-transformer-architecture)
-- [2. Forward Propagation](#2-forward-propagation)
-  - [2.1 Word Embedding](#21-word-embedding)
-  - [2.2 Position Embedding](#22-position-embedding)
-  - [2.3 Encoder and Decoder](#23-encoder-and-decoder)
-    - [2.3.1 ADD \& NORM](#231-add--norm)
-    - [2.3.2 Feed Forward Network](#232-feed-forward-network)
-    - [2.3.3 Multi-head Attention](#233-multi-head-attention)
-  - [2.4 Softmax Classifier](#24-softmax-classifier)
-- [3 Backward Propagation](#3-backward-propagation)
 
 Recently, a great personal assistant and chit-chat robot ChatGPT gained a lot of attention. Unlike other wooden voice assistants on our phones such as Siri, ChatGPT can process textual and semantic information in natural language, meaning it can talk to people continuously on a given topic and understand undelying meanings. Find it hard to believe? Let's have a try.
 
