@@ -76,10 +76,76 @@ With the help of material derivative, we are able to describe the second Newton'
 
 $$
 \begin{aligned}
-\rho\frac{D\boldsymbol{V}}{Dt}&=\boldsymbol{f}\\
-\frac{\partial \boldsymbol{V}}{\partial t}+(\boldsymbol{V}\cdot\nabla)\boldsymbol{V}&=\frac{f}{\rho}
+\rho\frac{D\boldsymbol{V}}{Dt}=\boldsymbol{f}\\
+\frac{\partial \boldsymbol{V}}{\partial t}+(\boldsymbol{V}\cdot\nabla)\boldsymbol{V}=\frac{\boldsymbol{f}}{\rho}
 \end{aligned}
 $$
 
-Once the specific expression of the force density is substituted into the equation, the motion of the fluid under the specific force can be obtained.
+Note that here $$\rho$$ stands for the density of fluid, normally we assume the fluid to be incompressible so that $$\rho$$ becomes constant. If the fluid is comressible, then there would be a density field as well, which would make the expression become much more complicated. Now, with incompressible fluid assumption, once the force density is substituted into the equation, the motion of the fluid under the specific force can be obtained. 
 
+This leads us to a new question. How many kinds of forces are there? Gravity for sure. But what about pressure stress and viscous stress. Here let us solve it one by one.
+
+## Pressure Stress
+---
+Apart from gravity, water particles are also subjected to pressure in the opposite direction of the normal to the force surface. To visualize this process, we normally assume a cubic element in the fluid space. See figure below.
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/ns-equations/underwater-pressure.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Surface pressure of the cubic fluid element
+</div>
+
+$$p$$ denotes the pressure at the center position of the cubic fluid element. Since the size of the cubic element is extremely small, we can replace the pressure difference $$\Delta p_{x}$$ between center position and the cubic surface with the product of first-time derivative and the their distance $$\frac{\partial p}{\partial x}\frac{\delta x}{2}$$. That gives us the expressions in the above figure. 
+
+Now, pressure stress can be easily calculated by multiplying pressure with the area of surfaces.
+
+* Pressure stress along along positive direction of x axis.
+
+$$
+(p-\frac{\partial p}{\partial x}\frac{\delta x}{2})\delta y\delta z - (p+\frac{\partial p}{\partial x}\frac{\delta x}{2})\delta y\delta z = -\frac{\partial p}{\partial x}\delta x\delta y\delta z
+$$
+
+* Pressure stress along along positive direction of y axis.
+
+$$
+(p-\frac{\partial p}{\partial y}\frac{\delta y}{2})\delta x\delta z - (p+\frac{\partial p}{\partial y}\frac{\delta y}{2})\delta x\delta z = -\frac{\partial p}{\partial y}\delta x\delta y\delta z
+$$
+
+* Pressure stress along along positive direction of z axis.
+
+$$
+(p-\frac{\partial p}{\partial z}\frac{\delta z}{2})\delta x\delta y - (p+\frac{\partial p}{\partial z}\frac{\delta z}{2})\delta x\delta y = -\frac{\partial p}{\partial z}\delta x\delta y\delta z
+$$
+
+The total pressure stress the cubic fluid element subjected to is
+
+$$
+-\nabla p\times\delta x\delta y\delta z
+$$
+
+Thus, the pressure stress density is $$-\nabla p$$.
+
+## Viscous Stress
+
+Unlike pressure stress, viscous stress differs in magnitude and amplitude at different positions. For example, for a given surface perpendicular to x axis, the viscous stress varies quite rapidly, making it rather difficult to describe it by simply a normal vector.
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/ns-equations/viscous-stress.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
+$$\tau_{x}$$ denotes the viscous stress whom the plane is subjected to.
+
+How can we desribe this complcated forces now? Well, we just need to further decompose the viscous stress into 3 dimensions, for example we let $$\boldsymbol{\tau_x}=\tau_{xx}\boldsymbol{i}+\tau_{xy}\boldsymbol{j}+\tau_{xz}\boldsymbol{k}$$. Similarly, the viscous stress at y-perpendicular and z-perpendicular plane can be decomposed as $$\boldsymbol{\tau_y}=\tau_{yx}\boldsymbol{i}+\tau_{yy}\boldsymbol{j}+\tau_{yz}\boldsymbol{k}$$ and $$\boldsymbol{\tau_z}=\tau_{zx}\boldsymbol{i}+\tau_{zy}\boldsymbol{j}+\tau_{zz}\boldsymbol{k}$$. Remember that the first subscript means which plane the viscous stress is applied, and the second subscript means the direction of the viscous stress. With the help of further decomposed analysis, we reorgnize the viscous stress to 3 axis by adding the same direction viscous projection, i.e.
+
+$$
+\tau_{sx}=\tau_{xx}+\tau_{yx}+\tau_{zx}\\
+\tau_{sy}=\tau_{xy}+\tau_{yy}+\tau_{zy}\\
+\tau_{sz}=\tau_{xz}+\tau_{yz}+\tau_{zz}
+$$
+
+The subscript $$sx$$ means this physical parameter is parallel to the positive direction of x axis.
