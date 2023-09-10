@@ -143,9 +143,11 @@ $$\tau_{x}$$ denotes the viscous stress whom the plane is subjected to.
 How can we desribe this complcated forces now? Well, we just need to further decompose the viscous stress into 3 dimensions, for example we let $$\boldsymbol{\tau_x}=\tau_{xx}\boldsymbol{i}+\tau_{xy}\boldsymbol{j}+\tau_{xz}\boldsymbol{k}$$. Similarly, the viscous stress at y-perpendicular and z-perpendicular plane can be decomposed as $$\boldsymbol{\tau_y}=\tau_{yx}\boldsymbol{i}+\tau_{yy}\boldsymbol{j}+\tau_{yz}\boldsymbol{k}$$ and $$\boldsymbol{\tau_z}=\tau_{zx}\boldsymbol{i}+\tau_{zy}\boldsymbol{j}+\tau_{zz}\boldsymbol{k}$$. Remember that the first subscript means which plane the viscous stress is applied, and the second subscript means the direction of the viscous stress. With the help of further decomposed analysis, we reorgnize the viscous stress to 3 axis by adding the same direction viscous projection, i.e.
 
 $$
+\begin{aligned}
 \tau_{sx}=\tau_{xx}+\tau_{yx}+\tau_{zx}\\
 \tau_{sy}=\tau_{xy}+\tau_{yy}+\tau_{zy}\\
 \tau_{sz}=\tau_{xz}+\tau_{yz}+\tau_{zz}
+\end{aligned}
 $$
 
 The subscript $$sx$$ means this physical parameter is parallel to the positive direction of x axis.
