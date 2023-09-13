@@ -64,7 +64,7 @@ First, we switch to a surface coordinate on our planet. The `y` axis goes along 
     </div>
 </div>
 
-We let the angular velocity in the given coordinate be like $$\overrightarrow{\omega}=\omega_y\overrightarrow{j}+\omega_z\overrightarrow{k}$$. Since the angular velocity is perpendicular to the equator plane, $$\overrightarrow{\omega_x}$$ must equal to 0. And if we were at the North hemisphere, the angular y component must be no smaller than 0 while in the South hemisphere, y component remain smaller than or equal 0. So is its z component. Check out the table for details.
+We let the angular velocity in the given coordinate be like $$\overrightarrow{\omega}=\omega_y\overrightarrow{j}+\omega_z\overrightarrow{k}$$. Since the angular velocity is perpendicular to the equator plane, $$\overrightarrow{\omega_x}$$ must equal to 0. And if we were at the North hemisphere, the angular z component must be no smaller than 0 while in the South hemisphere, z component remain smaller than or equal 0. Check out the table for details.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
