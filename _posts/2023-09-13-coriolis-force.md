@@ -54,9 +54,17 @@ Though we see this Coriolis term in the net force of an object, there isn't real
 
 ## Coriolis-induced Turning Effect
 
-There are already conlusions about the motion distortion effect induced by the COriolis force. Such as, the objects in the North hemisphere experiences a Coriolis force to the right in the direction of motion, while objects from the South hemisphere are subjected to a left side Coriolis force. Why is that? Now let's try to explain it with some basic calculations.
+There are already conlusions about the motion distortion effect induced by the Coriolis force. Such as, the objects in the North hemisphere experiences a Coriolis force to the right in the direction of motion, while objects from the South hemisphere are subjected to a left side Coriolis force. Why is that? Now let's try to explain it with some basic calculations.
 
-First, we switch to a surface coordinate on our planet. The `y` axis goes along the longitude to north pole and the `x` axis goes along the latitude from West to East, making our `z` axis rises towards the sky. Refer to the following figure. We let the angular velocity in the given coordinate be like $$\overrightarrow{\omega}=\omega_y\overrightarrow{j}+\omega_z\overrightarrow{k}$$. Since the angular velocity is perpendicular to the equator plane, $$\overrightarrow{\omega_x}$$ must equal to 0. And if we were at the North hemisphere, the angular y component must be no smaller than 0 while in the South hemisphere, y component remain smaller than or equal 0. So is its z component. Check out the table for details.
+First, we switch to a surface coordinate on our planet. The `y` axis goes along the longitude to north pole and the `x` axis goes along the latitude from West to East, making our `z` axis rises towards the sky. Refer to the following figure. 
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/coriolis-force/surface-coordinate.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
+We let the angular velocity in the given coordinate be like $$\overrightarrow{\omega}=\omega_y\overrightarrow{j}+\omega_z\overrightarrow{k}$$. Since the angular velocity is perpendicular to the equator plane, $$\overrightarrow{\omega_x}$$ must equal to 0. And if we were at the North hemisphere, the angular y component must be no smaller than 0 while in the South hemisphere, y component remain smaller than or equal 0. So is its z component. Check out the table for details.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
